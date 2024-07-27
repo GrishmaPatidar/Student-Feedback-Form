@@ -1,0 +1,90 @@
+<!-- feedback/templates/feedback/feedback_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(148, 199, 224);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 40%; 
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 100px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 150px; /* Increased height for the feedback textarea */
+        }
+        #id_rating {
+            height: 40px; /* Increased height for the rating input */
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Feedback Form</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="id_name">Name:</label>
+            {{ form.name }}
+            
+            <label for="id_email">Email:</label>
+            {{ form.email }}
+            
+            <label for="id_course">Course:</label>
+            {{ form.course }}
+            
+            <label for="id_rating">Rating:</label>
+            {{ form.rating }}
+            
+            <label for="id_feedback">Feedback:</label>
+            {{ form.feedback }}
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
